@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import JNotice from './lib'
+Vue.use(JNotice)
+
 Vue.config.productionTip = false
 
 new Vue({
