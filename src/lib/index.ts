@@ -90,8 +90,6 @@ export default {
       root.$el.appendChild(ins.$el)
 
       setTimeout(() => {
-        
-        
         ins.$el.style.display = 'none'
         root.$destroy(ins)
         root.$el.removeChild(ins.$el)

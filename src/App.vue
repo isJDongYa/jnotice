@@ -11,13 +11,12 @@ import { Component, Vue } from 'vue-property-decorator';
   name: 'App'
 })
 export default class App extends Vue {
-  
 
   public click() {
     this.$jnotice({
       background: '#424242',
       color: '#fff',
-      position: 't-right'
+      position: 'top'
     })
   }
 }

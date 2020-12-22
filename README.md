@@ -13,20 +13,22 @@ npm install @jdorg/jnotice --save
 ```js
 import JNotice from 'jnotice'
 
+import 'jnotice/dist/jnotice.css'
+
 Vue.use(JNotice)
 ```
 
 然后在vue实例中：
 
 ```js
-this.$jnotice(setup:jnoticeSetup)
+this.$jnotice(setup:jnoticeSetup) // setup 为jnoticeSetup类型的对象
 ```
 
 ## 说明
 
 接口：
 ```ts
-export interface jnoticeSetup {
+interface jnoticeSetup {
   text?:string;   // 要显示的文字
   duraiton?:number; // 多久会消失
   position?:'top'|'bottom'|'t-left'|'b-left'|'t-right'|'b-right'; // 所在位置
@@ -52,3 +54,39 @@ const jnoticeDefaultSetup:jnoticeSetup = {
   type: 'info'
 }
 ```
+
+## example
+
+```html
+<div id="app">
+  <button class="btn" @click="click">Click to jnotice!</button>
+</div>
+```
+
+```ts
+export default class App extends Vue {
+  public click() {
+    this.$jnotice({
+      background: '#424242',
+      color: '#fff',
+      position: 'top'
+    })
+  }
+}
+```
+
+```less
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  width: 200px;
+  height: 80px;
+}
+```
+
+![example](https://raw.githubusercontent.com/isJDongYa/jnotice/master/src/assets/example.gif)

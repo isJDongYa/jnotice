@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": false,
   "main": "dist/jnotice.umd.min.js",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "description": "一个基于vue的“通知”组件",
   "keywords": [
     "vue",
@@ -19,11 +21,11 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name jnotice src/lib"
+    "lib": "vue-cli-service build --target lib --name jnotice src/lib/index.ts"
   },
   "repository": {
-    "type": "github",
-    "url": ""
+    "type": "git",
+    "url": "https://github.com/isJDongYa/jnotice.git"
   },
   "dependencies": {
     "vue": "^2.6.11",
@@ -36,7 +38,8 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^4.3.0"
   },
   "license": "MIT",
   "publishConfig": {
