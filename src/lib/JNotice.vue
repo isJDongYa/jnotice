@@ -22,11 +22,15 @@ export default class JNotice extends Vue {
 </script>
 <style lang="less" scoped>
 @import url('./css/iconfont.css');
+
+
+
 .jnotcie-contain {
   position: fixed;
-  display: none;
   align-items: center;
+  display: flex;
   z-index: 10000;
+  transition: opacity .3s, transform .3s;
 }
 .jnotice-icon {
   margin-right: auto;

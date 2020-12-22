@@ -35,42 +35,46 @@ export default {
           text: jnoticeDefaultSetup.text
         }
       }) as any) .$mount()
+      
+      let insEleStyle = (ins.$el as HTMLElement).style
+
+      insEleStyle = root.$el.appendChild(ins.$el).style
 
       if(jnoticeSetup?.position === 't-left') {
-        (ins.$el as HTMLElement).style.cssText = `top:${ offset }px;left:${ offset }px;color:${jnoticeDefaultSetup.color};` +
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
+        insEleStyle.cssText = `opacity:0;top:${ offset }px;left:${ offset }px;color:${jnoticeDefaultSetup.color};` +
+          `background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         tleft.push(ins.$el)
         for (let i=tleft.length-1;i>=0;i--) {
           const ele = tleft[i]
           ele.style.transform = `translate(0 ,calc(${100*( tleft.length-1-i )}% + ${offset*( tleft.length-1-i )}px))`
         }
       } else if(jnoticeSetup?.position === 't-right') {
-        (ins.$el as HTMLElement).style.cssText = `top:${ offset }px;right:${ offset }px;color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
+        insEleStyle.cssText = `opacity:0;top:${ offset }px;right:${ offset }px;color:${jnoticeDefaultSetup.color};` + 
+          `background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         tright.push(ins.$el)
         for (let i=tright.length-1;i>=0;i--) {
           const ele = tright[i]
           ele.style.transform = `translate(0 ,calc(${100*( tright.length-1-i )}% + ${offset*( tright.length-1-i )}px))`
         }
       } else if(jnoticeSetup?.position === 'b-left') {
-        (ins.$el as HTMLElement).style.cssText = `bottom:${ offset }px;left:${ offset }px;color:${jnoticeDefaultSetup.color};` +
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
+        insEleStyle.cssText = `opacity:0;bottom:${ offset }px;left:${ offset }px;color:${jnoticeDefaultSetup.color};` +
+          `background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         bleft.push(ins.$el)
         for (let i=bleft.length-1;i>=0;i--) {
           const ele = bleft[i]
           ele.style.transform = `translate(0 ,calc(-${100*( bleft.length-1-i )}% - ${offset*( bleft.length-1-i )}px))`
         }
       } else if(jnoticeSetup?.position === 'b-right') {
-        (ins.$el as HTMLElement).style.cssText = `bottom:${ offset }px;right:${ offset }px;color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
+        insEleStyle.cssText = `opacity:0;bottom:${ offset }px;right:${ offset }px;color:${jnoticeDefaultSetup.color};` + 
+          `background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         bright.push(ins.$el)
         for (let i=bright.length-1;i>=0;i--) {
           const ele = bright[i]
           ele.style.transform = `translate(0 ,calc(-${100*( bright.length-1-i )}% - ${offset*( bright.length-1-i )}px))`
         }
       } else if(jnoticeSetup?.position === 'bottom') {
-        (ins.$el as HTMLElement).style.cssText = `bottom:${ offset }px;left:${ vW / 2 }px;transform:translateX(-50%);color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
+        insEleStyle.cssText = `opacity:0;bottom:${ offset }px;left:${ vW / 2 }px;transform:translateX(-50%);color:${jnoticeDefaultSetup.color};` + 
+          `background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
           bottom.push(ins.$el)
           for (let i=bottom.length-1;i>=0;i--) {
             const ele = bottom[i]
@@ -78,8 +82,8 @@ export default {
           }
       } else {
 
-        (ins.$el as HTMLElement).style.cssText = `top:${ offset }px;left:${ vW / 2 }px;transform:translateX(-50%);color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
+        insEleStyle.cssText = `opacity:0;top:${ offset }px;left:${ vW / 2 }px;transform:translateX(-50%);color:${jnoticeDefaultSetup.color};` + 
+          `background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}` 
         top.push(ins.$el)
         for (let i=top.length-1;i>=0;i--) {
           const ele = top[i]
@@ -87,10 +91,11 @@ export default {
         }
       }
 
-      root.$el.appendChild(ins.$el)
+      setTimeout(() => {
+        insEleStyle.opacity = '1'
+      }, 0)
 
       setTimeout(() => {
-        ins.$el.style.display = 'none'
         root.$el.removeChild(ins.$el)
         ins.$destroy()
         if(jnoticeSetup?.position === 't-left') {
