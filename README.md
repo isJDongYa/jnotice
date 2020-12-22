@@ -11,9 +11,9 @@ npm install @jdorg/jnotice --save
 先引入：
 
 ```js
-import JNotice from 'jnotice'
+import JNotice from '@jdorg/jnotice'
 
-import 'jnotice/dist/jnotice.css'
+import '@jdorg/jnotice/dist/jnotice.css'
 
 Vue.use(JNotice)
 ```
@@ -35,7 +35,7 @@ interface jnoticeSetup {
   background?:string; // 与css一致
   color?:string; // 与css一致
   width?:string; // 与css一致
-  height?:string; // 与css一致
+  mheight?:string; // 与css min-height一致
   type?:'info'|'success'|'error';  // icon 类型
 }
 ```
@@ -50,7 +50,7 @@ const jnoticeDefaultSetup:jnoticeSetup = {
   background: '#ddd',
   color: '#000',
   width: '400px',
-  height: '50px',
+  mheight: '50px',
   type: 'info'
 }
 ```

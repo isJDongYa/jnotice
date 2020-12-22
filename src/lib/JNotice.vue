@@ -26,14 +26,18 @@ export default class JNotice extends Vue {
   position: fixed;
   display: none;
   align-items: center;
+  z-index: 10000;
 }
 .jnotice-icon {
   margin-right: auto;
   margin-left: 20px;
+  max-width: 20%;
 }
 .jnotcie-text {
   margin-right: auto;
   margin-left: -20px;
+  max-width: 80%;
+  max-width: 80%;
 }
 
 </style>

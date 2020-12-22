@@ -16,7 +16,7 @@ export default {
       background: '#ddd',
       color: '#000',
       width: '400px',
-      height: '50px',
+      mheight: '50px',
       type: 'info'
     }
 
@@ -38,7 +38,7 @@ export default {
 
       if(jnoticeSetup?.position === 't-left') {
         (ins.$el as HTMLElement).style.cssText = `top:${ offset }px;left:${ offset }px;color:${jnoticeDefaultSetup.color};` +
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};height:${jnoticeDefaultSetup.height}`
+          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         tleft.push(ins.$el)
         for (let i=tleft.length-1;i>=0;i--) {
           const ele = tleft[i]
@@ -46,7 +46,7 @@ export default {
         }
       } else if(jnoticeSetup?.position === 't-right') {
         (ins.$el as HTMLElement).style.cssText = `top:${ offset }px;right:${ offset }px;color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};height:${jnoticeDefaultSetup.height}`
+          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         tright.push(ins.$el)
         for (let i=tright.length-1;i>=0;i--) {
           const ele = tright[i]
@@ -54,7 +54,7 @@ export default {
         }
       } else if(jnoticeSetup?.position === 'b-left') {
         (ins.$el as HTMLElement).style.cssText = `bottom:${ offset }px;left:${ offset }px;color:${jnoticeDefaultSetup.color};` +
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};height:${jnoticeDefaultSetup.height}`
+          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         bleft.push(ins.$el)
         for (let i=bleft.length-1;i>=0;i--) {
           const ele = bleft[i]
@@ -62,7 +62,7 @@ export default {
         }
       } else if(jnoticeSetup?.position === 'b-right') {
         (ins.$el as HTMLElement).style.cssText = `bottom:${ offset }px;right:${ offset }px;color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};height:${jnoticeDefaultSetup.height}`
+          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         bright.push(ins.$el)
         for (let i=bright.length-1;i>=0;i--) {
           const ele = bright[i]
@@ -70,7 +70,7 @@ export default {
         }
       } else if(jnoticeSetup?.position === 'bottom') {
         (ins.$el as HTMLElement).style.cssText = `bottom:${ offset }px;left:${ vW / 2 }px;transform:translateX(-50%);color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};height:${jnoticeDefaultSetup.height}`
+          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
           bottom.push(ins.$el)
           for (let i=bottom.length-1;i>=0;i--) {
             const ele = bottom[i]
@@ -79,7 +79,7 @@ export default {
       } else {
 
         (ins.$el as HTMLElement).style.cssText = `top:${ offset }px;left:${ vW / 2 }px;transform:translateX(-50%);color:${jnoticeDefaultSetup.color};` + 
-          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};height:${jnoticeDefaultSetup.height}`
+          `display:flex;background:${jnoticeDefaultSetup.background};width:${jnoticeDefaultSetup.width};min-height:${jnoticeDefaultSetup.mheight}`
         top.push(ins.$el)
         for (let i=top.length-1;i>=0;i--) {
           const ele = top[i]
@@ -91,8 +91,8 @@ export default {
 
       setTimeout(() => {
         ins.$el.style.display = 'none'
-        root.$destroy(ins)
         root.$el.removeChild(ins.$el)
+        ins.$destroy()
         if(jnoticeSetup?.position === 't-left') {
           tleft.splice(tleft.indexOf(ins.$el), 1)
         } else if(jnoticeSetup?.position === 't-right') {

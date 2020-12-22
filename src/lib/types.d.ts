@@ -7,7 +7,7 @@ export interface jnoticeSetup {
   background?:string;
   color?:string;
   width?:string;
-  height?:string;
+  mheight?:string;
   type?:'info'|'success'|'error';
 }
 
