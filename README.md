@@ -90,3 +90,9 @@ export default class App extends Vue {
 ```
 
 ![example](https://raw.githubusercontent.com/isJDongYa/jnotice/master/src/assets/example.gif)
+
+## others
+
+@jdorg是一个开源前端组件的社区，如果你有开源组件的想法，欢迎加入我们
+
+![qqgroup](https://raw.githubusercontent.com/isJDongYa/jnotice/master/src/assets/@jdorg_z_rs.jpg)

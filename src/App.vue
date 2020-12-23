@@ -15,7 +15,7 @@ export default class App extends Vue {
   public click() {
     this.$jnotice({
       background: '#424242',
-      color: '#fff',
+      color: '#000',
       position: 'b-right'
     })
   }

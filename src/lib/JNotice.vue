@@ -16,8 +16,6 @@ export default class JNotice extends Vue {
   @Prop({default: 'info'}) private type?:string;
   @Prop({default: 'This is jnotice!'}) private text?:string;
   
-  
-  
 }
 </script>
 <style lang="less" scoped>
